@@ -1,0 +1,26 @@
+{
+  "appId": "com.whisper.server",
+  "productName": "Whisper Server",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "extraResources": [
+    {
+      "from": "python",
+      "to": "python",
+      "filter": ["**/*"]
+    }
+  ],
+  "win": {
+    "target": ["nsis"]
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  }
+}
