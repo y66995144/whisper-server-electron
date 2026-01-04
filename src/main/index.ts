@@ -134,17 +134,15 @@ ipcMain.handle('open-log-folder', async (_, filePath: string) => {
 })
 
 function getPythonPath(): string {
-  // 开发环境使用系统 Python，生产环境使用打包的 Python
-  if (process.env.VITE_DEV_SERVER_URL) {
-    return 'python'
-  }
-  return join(process.resourcesPath, 'python', 'python.exe')
+  // 始终使用系统 Python
+  return 'python'
 }
 
 function getScriptPath(): string {
   if (process.env.VITE_DEV_SERVER_URL) {
     return join(__dirname, '../../python/server.py')
   }
+  // 生产环境从 resources 目录读取脚本
   return join(process.resourcesPath, 'python', 'server.py')
 }
 
